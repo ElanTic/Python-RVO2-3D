@@ -7,8 +7,8 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jt_Pyrvo23d"
-version = "0.1.0"
+name = "jt-Pyrvo23d"
+version = "0.1.1"
 description = "Wheels for the Pyrvo23d wrapper by mtrmel"
 authors = [{ name="Jonathan Tinoco", email="aplicacionesdejon@gmail.com" }]
 license = { text = "MIT" }
