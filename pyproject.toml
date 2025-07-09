@@ -5,3 +5,11 @@ requires = [
   "wheel",
 ]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "jt_Pyrvo23d"
+version = "0.1.0"
+description = "Wheels for the Pyrvo23d wrapper by mtrmel"
+authors = [{ name="Jonathan Tinoco", email="aplicacionesdejon@gmail.com" }]
+license = text = "MIT"
+readme = "README.md"
