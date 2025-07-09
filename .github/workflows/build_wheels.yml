@@ -28,14 +28,14 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Build wheel
-        run: |
-          pip install build
-          python -m build --wheel
+        uses: pypa/cibuildwheel@v3.0.1
+        env:
+          CIBW_PLATFORM: ${{ matrix.platform || 'auto' }}
 
-      - name: Store wheel artifact
+      - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
-          name: wheels-${{ matrix.os }}-py${{ matrix.python-version }}
+          name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
           path: dist/*.whl
 
   upload_release:
@@ -63,6 +63,7 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
+          pattern: cibw-*
           path: dist
 
       - name: Set up Python
