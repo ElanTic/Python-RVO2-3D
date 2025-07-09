@@ -4,7 +4,7 @@ from Cython.Build import cythonize
 import os
 import os.path
 import subprocess
-
+import sysconfig
 
 class BuildRvo23DExt(_build_ext):
     """Builds RVO23D before our module."""
@@ -38,14 +38,18 @@ class BuildRvo23DExt(_build_ext):
 
 # MSVC on windows
 if os.name == 'nt':
+    python_lib = sysconfig.get_config_var('LIBDIR')
+    python_libname = 'python' + sysconfig.get_python_version().replace('.', '')
     extensions = [
-        Extension('rvo23d', ['src/rvo23d.pyx'],
-              include_dirs=['src'],
-              libraries=['RVO'],
-              library_dirs=['build/RVO23D/src/Release'],
-              extra_compile_args=[],
-	      extra_link_args=[]),
-]
+        Extension(
+            'rvo23d', ['src/rvo23d.pyx'],
+            include_dirs=['src'],
+            libraries=['RVO', python_libname],
+            library_dirs=['build/RVO23D/src/Release', python_lib],
+            extra_compile_args=[],
+            extra_link_args=[]
+        ),
+    ]
 # GCC on linux
 else:
     extensions = [
