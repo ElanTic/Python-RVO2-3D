@@ -38,14 +38,17 @@ class BuildRvo23DExt(_build_ext):
 
 # MSVC on windows
 if os.name == 'nt':
-    python_lib = sysconfig.get_config_var('LIBDIR')
+    library_dirs = ['build/RVO23D/src/Release']
+    python_lib = sysconfig.get_config_var('LIBDIR') or ''
+    if python_lib:
+        library_dirs.append(python_lib)
     python_libname = 'python' + sysconfig.get_python_version().replace('.', '')
     extensions = [
         Extension(
             'rvo23d', ['src/rvo23d.pyx'],
             include_dirs=['src'],
             libraries=['RVO', python_libname],
-            library_dirs=['build/RVO23D/src/Release', python_lib],
+            library_dirs=library_dirs,
             extra_compile_args=[],
             extra_link_args=[]
         ),
