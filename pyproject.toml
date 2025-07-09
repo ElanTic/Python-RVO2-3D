@@ -11,5 +11,4 @@ name = "jt_Pyrvo23d"
 version = "0.1.0"
 description = "Wheels for the Pyrvo23d wrapper by mtrmel"
 authors = [{ name="Jonathan Tinoco", email="aplicacionesdejon@gmail.com" }]
-license = "MIT"
-readme = "README.md"
+license = { text = "MIT" }
