@@ -18,7 +18,8 @@ class BuildRvo23DExt(_build_ext):
 
             # Set generator
             if os.name == 'nt':
-                subprocess.check_call(['cmake', '../..'], cwd=build_dir)
+                subprocess.check_call(['cmake', '-G', 'Visual Studio 14 2015 Win64', '../..'],
+                                        cwd=build_dir)
             else:
                 subprocess.check_call(['cmake', '../..', '-DCMAKE_CXX_FLAGS=-fPIC'],
                                       cwd=build_dir)
