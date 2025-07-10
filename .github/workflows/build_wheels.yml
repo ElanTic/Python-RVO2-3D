@@ -82,6 +82,7 @@ jobs:
 
       - name: Upload to PyPI
         run: twine upload dist/**/*.whl
+        run: twine upload --skip-existing dist/**/*.whl
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.PYPIT }}
