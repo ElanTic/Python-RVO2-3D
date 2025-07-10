@@ -66,7 +66,7 @@ else:
 
 setup(
     name="pyrvo23d",
-    version='0.1.3',
+    version='0.1.1',
     ext_modules=cythonize(extensions),
     cmdclass={'build_ext': BuildRvo23DExt},
     classifiers=[
