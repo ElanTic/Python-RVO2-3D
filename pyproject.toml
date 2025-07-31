@@ -7,11 +7,11 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jt-Pyrvo23d" # name only provided to left the original available in case official Pyrvo23d wheels are released 
+name = "jt-Pyrvo23d" # forked version to avoid collision with upstream name in case official Pyrvo23d wheels are released 
 version = "0.1.6"
 description = "Wheels for the Pyrvo23d wrapper by mtrmel"
-mantainers = [{ name="Jonathan Tinoco", email="aplicacionesdejon@gmail.com" }]
-readme = "README"
+maintainers = [{ name="Jonathan Tinoco", email="aplicacionesdejon@gmail.com" }]
+readme = "README.md"
 authors = [{ name = "Jur van den Berg"},
           { name = "Stephen J. Guy"},
           { name = "Jamie Snape"},
